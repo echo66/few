@@ -48,6 +48,30 @@ class FEW(SurvivalMixin, VariationMixin, EvaluationMixin, PopMixin,
           BaseEstimator):
     """FEW uses GP to find a set of transformations from the original feature
     space that produces the best performance for a given machine learner.
+    
+    Parameters
+    ----------
+    population_size : int (default: 50)
+          Number of individuals in the GP population.
+          
+    generations : int (default: 100)
+          Number of generations to run FEW.
+          
+    mutation_rate : float (default: 0.5)
+          GP mutation rate in the range [0.0, 1.0].
+          
+    crossover_rate : float (default: 0.5)
+          GP crossover rate in the range [0.0, 1.0].
+    
+    ml : scikit learn classifier or regressor
+          ML algorithm to pair with features.
+    
+    min_depth : int (default: 1)
+          Minimum length of GP programs.
+    
+    max_depth : int (default: 2)
+    
+    max_depth_init : init (default: 2)
     """
     update_checked = False
 
